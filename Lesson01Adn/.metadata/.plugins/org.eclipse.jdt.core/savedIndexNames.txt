@@ -1,0 +1,1 @@
+INDEX VERSION 1.126+E:\andriodWorkplace\android_wifi\Lesson01Adn\.metadata\.plugins\org.eclipse.jdt.core
