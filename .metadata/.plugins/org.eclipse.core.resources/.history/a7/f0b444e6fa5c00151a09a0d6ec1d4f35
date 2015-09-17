@@ -1,0 +1,81 @@
+package cn.jk.httpget;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.WildcardType;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLConnection;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+
+public class MainActivity extends ActionBarActivity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		findViewById(R.id.button1).setOnClickListener(
+				new View.OnClickListener() {
+
+					@Override
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+						new AsyncTask<String, Void, Void>() {
+                            
+							protected void onPreExecute() {
+								System.out.println("異步執行之前");
+							};
+							
+							protected  void onProgressUpdate(Void[] values) {
+								System.out.println("一部更新");
+							};
+							
+							protected void onPostExecute(Void result) {
+								System.out.println("一部結束");
+							};
+							
+							@Override
+							protected Void doInBackground(String... arg0) {
+								// TODO Auto-generated method stub
+								try {
+									URL url = new URL(arg0[0]);
+									URLConnection urlConnection = url
+											.openConnection();
+									InputStream is = urlConnection
+											.getInputStream();
+									InputStreamReader isr = new InputStreamReader(
+											is, "utf-8");
+									BufferedReader btr = new BufferedReader(isr);
+									String line;
+									while ((line = btr.readLine()) != null) {
+										System.out.println(line);
+									}
+
+									btr.close();
+									isr.close();
+									is.close();
+
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+
+								return null;
+							}
+
+						}.execute("http://fanyi.youdao.com/openapi.do?keyfrom=testapp1111&key=1442666767&type=data&doctype=json&version=1.1&q=new");
+
+					}
+				});
+	}
+
+}

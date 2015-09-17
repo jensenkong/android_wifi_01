@@ -1,0 +1,35 @@
+package cn.jk.httpget;
+
+import android.os.AsyncTask;
+
+public class MyAsyncTask extends AsyncTask<String, Void, Void> {
+
+	@Override
+	protected Void doInBackground(String... arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	protected void onPreExecute() {
+		// TODO Auto-generated method stub
+		System.out.println("do onPreExecute");
+		super.onPreExecute();
+	}
+	
+	
+	@Override
+	protected void onPostExecute(Void result) {
+		// TODO Auto-generated method stub
+		System.out.println("do onPostExecute");
+		super.onPostExecute(result);
+	}
+	
+	@Override
+	protected void onProgressUpdate(Void... values) {
+		// TODO Auto-generated method stub
+		super.onProgressUpdate(values);
+		System.out.println("do onProgressUpdate");
+	}
+
+}
