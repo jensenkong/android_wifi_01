@@ -8,8 +8,9 @@ import android.widget.ImageView;
 public class MainActivity extends ActionBarActivity {
 	 private ImageView imageView;
 	 
-	/* private String urls = "http://fanyi.youdao.com/openapi.do?keyfrom=testapp1111&key=1442666767&type=data&doctype=json&version=1.1&q=new";*/
-	 private String urls = "https://gdp.alicdn.com/imgextra/i3/360260087/TB2zfnofXXXXXXZXpXXXXXXXXXX_!!360260087.jpg";
+	 private String urls = "http://fanyi.youdao.com/openapi.do?keyfrom=testapp1111&key=1442666767&type=data&doctype=json&version=1.1&q=new";
+	// private String urls = "http://www.eptison.com/";
+	 //private String urls = "https://gdp.alicdn.com/imgextra/i3/360260087/TB2zfnofXXXXXXZXpXXXXXXXXXX_!!360260087.jpg";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
